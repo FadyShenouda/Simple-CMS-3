@@ -1,0 +1,54 @@
+<% if !flash[:notice].blank? %>
+
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+
+<% end %>
+
+<%= link_to("Fady's HTML blog", "/pages/blog", :class =>"blog" ) %>
+
+<!-- Same in HTML -->
+<br>
+<br>
+
+<a href="/pages/blog">Fady's Blog </a>
+
+
+<div class="Pages index">
+  <h2> Pages</h2>
+
+  <tr>
+  <%= link_to("<< Back to subjects list", subjects_path, :class => 'back-link') %> </br>
+  <%= link_to("Add new page", new_page_path, :class => 'action new') %>
+  </tr>
+  <table class="listing" summary="Page list">
+    <tr class="header">
+      <th> # </th>
+      <th> Page </th>
+      <th> Subject_id </th>
+      <th> Permalink </th>
+      <th> Visible </th>
+      <th> Sections </th>
+      <th> Actions </th>
+
+    </tr>
+    <% @pages.each do |page| %>
+    <tr>
+      <td><%= page.position %></td>
+      <td><%= page.name %></td>
+      <td><%= page.subject_id %></td>
+      <td><%= page.permalink %></td>
+      <td class="center"> <%= page.visible ? 'Yes' : 'No' %> </td>
+      <td class="center"> <%= page.sections.size %> </td>
+      <td class="actions">
+        <%= link_to("Show", page_path(page), :class => 'action show') %>
+        <%= link_to("Edit", edit_page_path(page), :class => 'action edit') %>
+        <%= link_to("Delete", delete_page_path(page), :class => 'action delete') %>
+        <%= link_to("Sections", sections_path, :class => 'action show') %>
+
+      </td>
+
+    <% end %>
+  </table>
+</div>
