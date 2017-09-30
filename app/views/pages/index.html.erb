@@ -16,12 +16,14 @@
 
 
 <div class="Pages index">
-  <h2> Pages</h2>
+  <h2><b>Pages</b></h2>
+  <p>
+    <%= link_to("<< Back to subjects list", subjects_path, :class => 'back-link') %> </br>
+    <br>
+    <%= link_to("Add new page", new_page_path, :class => 'action new') %>
 
-  <tr>
-  <%= link_to("<< Back to subjects list", subjects_path, :class => 'back-link') %> </br>
-  <%= link_to("Add new page", new_page_path, :class => 'action new') %>
-  </tr>
+  </p>
+
   <table class="listing" summary="Page list">
     <tr class="header">
       <th> # </th>
