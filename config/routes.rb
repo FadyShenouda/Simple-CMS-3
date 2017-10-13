@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  root 'subjects#index'
+  root 'demo#index'
 
+  get 'subjects/index'
+  get 'demo/hello'
   get 'pages/blog'
   get 'demo/escape_output'
 
